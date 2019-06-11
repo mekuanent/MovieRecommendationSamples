@@ -1,0 +1,43 @@
+<form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input type="text" [(ngModel)]="userId" placeholder="Pick one user id" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let option of options" [value]="option">
+          {{option}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+    <button mat-button (click)="logIn()">Log In</button>
+  </form>
+<div fxLayout="row" style=""  fxLayoutGap="12px"  [style.margin-top]="'12px'">
+
+  <div *ngIf="currentUser">
+      <h2>Just For you</h2>
+    <div style="display:flex; flex-wrap: wrap;">
+          <mat-card *ngFor="let movie of topRated" style="margin: 3px; width: 110px;" (click)="movieClicked(movie)" >
+              <img mat-card-image src="{{'https://image.tmdb.org/t/p/w500' + movie.poster}}"/>
+          </mat-card>
+      </div>
+  </div>
+
+
+    <div *ngIf="currentMovie">
+        <h2>Similar To {{currentMovie.name}}</h2><br>
+        <div style="display:flex; flex-wrap: wrap;">
+            <mat-card *ngFor="let movie of similarMovies" style="margin: 3px; width: 110px;" (click)="movieClicked(movie)">
+                <img mat-card-image src="{{'https://image.tmdb.org/t/p/w500' + movie.poster}}"/>
+            </mat-card>
+        </div>
+    </div>
+
+    
+
+    <h2>Top Rated</h2><br>
+    <div style="display:flex; flex-wrap: wrap;">
+        <mat-card *ngFor="let movie of topRated" style="margin: 3px; width: 110px;" (click)="movieClicked(movie)" >
+            <img mat-card-image src="{{'https://image.tmdb.org/t/p/w500' + movie.poster}}"/>
+        </mat-card>
+    </div>
+
+
+</div>
