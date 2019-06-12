@@ -30,20 +30,26 @@ export class HomeComponent implements OnInit {
 
   movieClicked(movie){
 
-    this.currentMovie = movie
     let that = this
-    this.httpClient.get('http://localhost:5000/recommendation/' + this.currentMovie.name, {}).subscribe(
+    this.httpClient.get('http://localhost:5000/recommendation/' + movie.name, {}).subscribe(
       (data : any) => {
         that.similarMovies = data.results as any[]
+        that.currentMovie = movie
       })
 
   }
 
   currentUser = null
   myControl = new FormControl();
-  options: string[] = ['One', 'Two', 'Three'];
+  options: string[] = ['13', '152', '198'];
   userId = null
+  forme : any[]
   logIn(){
-    this.currentUser = this.userId
+    let that = this
+    this.httpClient.get('http://localhost:5000/for_me/' + this.userId, {}).subscribe(
+      (data : any) => {
+        that.forme = data.results as any[]
+        that.currentUser = that.userId
+      })
   }
 }

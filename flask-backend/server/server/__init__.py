@@ -4,6 +4,8 @@ from flask import Flask
 from flask.json import jsonify
 
 from models.Contextual import Contextual
+from models import Collaborative
+from models import Conversion
 
 
 def create_app(test_config=None):
@@ -38,6 +40,17 @@ def create_app(test_config=None):
     @app.route('/top')
     def get_top():
         return jsonify({'results': cont.get_rec_json(cont.get_first_movies(10))})
+
+    @app.route('/for_me/<int:userId>')
+    def get_for_me(userId):
+        pr = Collaborative.predict(userId)
+
+        uids = []
+        for (mid, rating) in pr:
+            imdb_id = Conversion.getImdbId(mid)
+            if imdb_id != -1:
+                uids.append(int(imdb_id))
+        return jsonify({'results': cont.get_rec_json_imdb(uids)})
 
     @app.after_request
     def after_request(response):

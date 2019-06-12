@@ -159,6 +159,18 @@ class Contextual:
                 results.append({'name': movie, 'poster': poster})
         return results
 
+    def get_rec_json_imdb(self, movies):
+        results = []
+
+        for idx in movies:
+            r = requests.get(
+                'https://api.themoviedb.org/3/movie/' + str(idx) + '?api_key=ba95c3d09bee2b2c372e524f312e7df8')
+            j = r.json()
+            poster = j['poster_path']
+            results.append({'name': j['original_title'], 'poster': poster})
+
+        return results
+
     def index_of(self, title):
         try:
             return self.ids[self.indices[title]], True
@@ -166,4 +178,4 @@ class Contextual:
             return None, False
 
     def get_first_movies(self, limit):
-        return self.df2['title'][:limit].tolist()
+        return self.df2.sort_values(by=['popularity'], ascending=False)['title'][:limit].tolist()

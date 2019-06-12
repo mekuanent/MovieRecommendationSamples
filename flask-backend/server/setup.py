@@ -5,6 +5,6 @@ setup(
     packages=['server'],
     include_package_data=True,
     install_requires=[
-        'flask', 'flask_cors'
+        'flask', 'flask_cors', 'torch'
     ],
 )

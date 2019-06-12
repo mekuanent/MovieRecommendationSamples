@@ -14,7 +14,7 @@
   <div *ngIf="currentUser">
       <h2>Just For you</h2>
     <div style="display:flex; flex-wrap: wrap;">
-          <mat-card *ngFor="let movie of topRated" style="margin: 3px; width: 110px;" (click)="movieClicked(movie)" >
+          <mat-card *ngFor="let movie of forme" style="margin: 3px; width: 110px;" (click)="movieClicked(movie)" >
               <img mat-card-image src="{{'https://image.tmdb.org/t/p/w500' + movie.poster}}"/>
           </mat-card>
       </div>
