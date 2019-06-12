@@ -41,12 +41,18 @@ class Contextual:
                 print('please make sure, you have created output dir in the working directory!')
                 exit(-1)
 
+            print("Building Model, Don't worry, this is a one time thing ;)")
             self.init_data()
+            print("Cleaning the dusty Rag!")
             self.sanitize_data()
+            print("Spotting Doppelgangers")
             self.content_similarity()
             self.meta_similarity()
+            print("Listening to John Legend")
             self.joined_similarity()
+            print("Taking a selfie")
             self.write_to_file()
+            print("All DONE! This will never happen again. Unless you delete the output models.")
         else:
             self.load_from_file()
 
