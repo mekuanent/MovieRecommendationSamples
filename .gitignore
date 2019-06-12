@@ -62,3 +62,4 @@ flask-backend/server/server/__pycache__/__init__.cpython-37.pyc
 server/.idea/modules.xml
 server/.idea/server.iml
 server/.idea/workspace.xml
+*.pyc
