@@ -50,8 +50,6 @@ flask-backend/server/.idea/server.iml
 flask-backend/server/.idea/vcs.xml
 flask-backend/server/.idea/workspace.xml
 flask-backend/server/__pycache__/__init__.cpython-37.pyc
-flask-backend/server/input/tmdb_5000_credits.csv
-flask-backend/server/input/tmdb_5000_movies.csv
 flask-backend/server/models/__pycache__/__init__.cpython-37.pyc
 flask-backend/server/models/__pycache__/Contextual.cpython-37.pyc
 flask-backend/server/models/__pycache__/Simple.cpython-37.pyc

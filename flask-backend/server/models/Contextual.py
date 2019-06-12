@@ -8,17 +8,18 @@ from sklearn.metrics.pairwise import cosine_similarity, polynomial_kernel
 from sklearn import preprocessing
 import json
 from sklearn.preprocessing import MultiLabelBinarizer
+
 import os.path
+from config import ROOT
+import os
 
+INP1_LOC = os.path.join(ROOT, 'input/tmdb_5000_credits.csv')
+INP2_LOC = os.path.join(ROOT, 'input/tmdb_5000_movies.csv')
 
-PROJECT_LOC = '/Users/pc/Documents/mahareshi/class/ml/projects/movie-recommender/flask-backend/server/'
+SER2_DIR_LOC = os.path.join(ROOT, 'output')
+SER1_LOC = os.path.join(ROOT, 'output/content_sim.npy')
+SER2_LOC = os.path.join(ROOT, 'output/meta_sim.npy')
 
-INP1_LOC = PROJECT_LOC + '/input/tmdb_5000_credits.csv'
-INP2_LOC = PROJECT_LOC + '/input/tmdb_5000_movies.csv'
-
-SER2_DIR_LOC = PROJECT_LOC + '/output'
-SER1_LOC = SER2_DIR_LOC + '/content_sim.npy'
-SER2_LOC = SER2_DIR_LOC + '/meta_sim.npy'
 
 class Contextual:
 
